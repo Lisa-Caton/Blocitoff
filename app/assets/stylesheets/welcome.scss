@@ -1,1 +1,29 @@
 
+.jumbotron {
+  background: url(https://i.imgur.com/fDWfMy6.png) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+  background-color: #f7f7f7;
+  margin-top: 50px;
+}
+
+.jumbotron h1, h3 {background-color: #f4f6f4ba; width: 415px;}
+
+.jumbotron h1 {
+  color: #76adb7!important;
+  margin-bottom: 0;
+  font-size: 40px !important;
+  padding: 20px;
+  padding: 20px 20px 10px;
+ }
+
+.jumbotron h3 {
+  color: #97c4cc!important;
+  font-style: italic;
+  margin-top: 0;
+  padding: 0 20px 20px;
+  width: 343px;
+}

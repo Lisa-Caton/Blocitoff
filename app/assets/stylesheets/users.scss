@@ -1,0 +1,20 @@
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+form#edit_user {
+  color: #303a3c;
+  margin-top: 30px;
+  width: 500px;
+}
+
+form#edit_user .field {
+  background-color: #fbfbfb;
+  border-radius: 3px;
+  margin-bottom: 9px;
+  padding: 15px 20px 15px;
+}
+
+form#edit_user .field label {margin-bottom: 2px;}
+
+.user_edit h3 {background-color: #fff;}
