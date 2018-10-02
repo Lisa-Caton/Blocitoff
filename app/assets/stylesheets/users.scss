@@ -2,19 +2,31 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-form#edit_user {
-  color: #303a3c;
-  margin-top: 30px;
-  width: 500px;
+.jumbotron {
+  background: url(https://i.imgur.com/fDWfMy6.png) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+  background-color: #f7f7f7;
+  margin-top: 50px;
 }
 
-form#edit_user .field {
-  background-color: #fbfbfb;
-  border-radius: 3px;
-  margin-bottom: 9px;
-  padding: 15px 20px 15px;
+.jumbotron h1, h3 {background-color: #f4f6f4ba; width: 415px;}
+
+.jumbotron h1 {
+  color: #76adb7!important;
+  margin-bottom: 0;
+  font-size: 40px !important;
+  padding: 20px;
+  padding: 20px 20px 10px;
+ }
+
+.jumbotron h3 {
+  color: #97c4cc!important;
+  font-style: italic;
+  margin-top: 0;
+  padding: 0 20px 20px;
+  width: 343px;
 }
-
-form#edit_user .field label {margin-bottom: 2px;}
-
-.user_edit h3 {background-color: #fff;}
