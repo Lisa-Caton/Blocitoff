@@ -1,1 +1,13 @@
-<p>Testing -- User's Show Page</p>
+<div class="To-Do">
+  <h2>Your To-Do List</h2>
+  <% if current_user %>
+      <div class="col-md-3">
+            <%= render "items/form", item: Item.new %>
+      </div>
+      <div class="col-md-3">
+        <div class='new-item'>
+          <%= render "items/item", locals: { item: @item } %>
+        </div>
+      </div>
+  <% end %>
+</div>

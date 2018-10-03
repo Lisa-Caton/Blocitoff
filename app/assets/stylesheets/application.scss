@@ -7,7 +7,11 @@
 
 
 body {font-family: 'Roboto', sans-serif;}
-.pull-right.user-info, a.navbar-link {margin-top: 11px;}
+.f1 {padding: 0 15px;}
+.nav-tabs {padding: 10px 15px;}
+.nav-tabs > li > a {padding: 0; margin: 0;}
+
+
 
 /*Edit Profile*/
 form#edit_user {
@@ -24,5 +28,4 @@ form#edit_user .field {
 }
 
 form#edit_user .field label {margin-bottom: 2px;}
-
 .user_edit h3 {background-color: #fff;}
