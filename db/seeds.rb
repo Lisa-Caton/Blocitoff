@@ -5,3 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+User.create([email: 'tester1@test.com'])
+users = User.all
+Item.create([{
+  user: users.sample,
+  name: 'Steve'
+   }])
+puts "Seed Finished"
+puts"#{User.count} users created"
+puts "#{Item.count} items created" 
