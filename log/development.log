@@ -5914,3 +5914,1058 @@ Content-Transfer-Encoding: 7bit
   ↳ db/seeds.rb:10
   [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "items"[0m
   ↳ db/seeds.rb:11
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:1
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "apple@gmail.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:1
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ db/seeds.rb:1
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[35m (5.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[35m (3.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/bin/rake:23
+Migrating to DeviseCreateUsers (20180928145622)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20180928145622_devise_create_users.rb:5
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  ↳ db/migrate/20180928145622_devise_create_users.rb:39
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  ↳ db/migrate/20180928145622_devise_create_users.rb:40
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180928145622"]]
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/bin/rake:23
+Migrating to AddConfirmableToDevise (20180928185940)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[35m (1.2ms)[0m  [1m[35mALTER TABLE "users" ADD "confirmation_token" varchar[0m
+  ↳ db/migrate/20180928185940_add_confirmable_to_devise.rb:4
+  [1m[35m (1.2ms)[0m  [1m[35mALTER TABLE "users" ADD "confirmed_at" datetime[0m
+  ↳ db/migrate/20180928185940_add_confirmable_to_devise.rb:5
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "users" ADD "confirmation_sent_at" datetime[0m
+  ↳ db/migrate/20180928185940_add_confirmable_to_devise.rb:6
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_confirmation_token" ON "users" ("confirmation_token")[0m
+  ↳ db/migrate/20180928185940_add_confirmable_to_devise.rb:8
+  [1m[36mUser Update All (0.1ms)[0m  [1m[33mUPDATE "users" SET "confirmed_at" = '2018-10-04 16:39:48.061630'[0m
+  ↳ db/migrate/20180928185940_add_confirmable_to_devise.rb:12
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180928185940"]]
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/bin/rake:23
+Migrating to CreateItems (20181001182504)
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "items" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_d4b6334db2"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  ↳ db/migrate/20181001182504_create_items.rb:3
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE  INDEX "index_items_on_user_id" ON "items" ("user_id")[0m
+  ↳ db/migrate/20181001182504_create_items.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181001182504"]]
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Create (1.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-10-04 16:39:48.151480"], ["updated_at", "2018-10-04 16:39:48.151480"]]
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:1
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "apple@gmail.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:1
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["email", "apple@gmail.com"], ["encrypted_password", "$2a$11$kSOmwf2B4V9pf908lOoYNeCJQ0zTTftQsN9qwi/CO/.NwjLRnYEJa"], ["created_at", "2018-10-04 16:39:48.373481"], ["updated_at", "2018-10-04 16:39:48.373481"], ["confirmation_token", "1cs9st2cdzhLYtqcj6_C"], ["confirmation_sent_at", "2018-10-04 16:39:48.373684"]]
+  ↳ db/seeds.rb:1
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:1
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (2.5ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 243.2ms
+Sent mail to apple@gmail.com (10.9ms)
+Date: Thu, 04 Oct 2018 12:39:48 -0400
+From: Blocitoff@example.com
+Reply-To: Blocitoff@example.com
+To: apple@gmail.com
+Message-ID: <5bb64254c099c_14c793fdf260337d040983@lcaton-mbp.local.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome apple@gmail.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=1cs9st2cdzhLYtqcj6_C">Confirm my account</a></p>
+
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.8ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Chris Griffin"], ["user_id", 1], ["created_at", "2018-10-04 16:39:48.809173"], ["updated_at", "2018-10-04 16:39:48.809173"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.8ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Chris Griffin"], ["user_id", 1], ["created_at", "2018-10-04 16:39:48.814574"], ["updated_at", "2018-10-04 16:39:48.814574"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (3.5ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Diane Simmons"], ["user_id", 1], ["created_at", "2018-10-04 16:39:48.818930"], ["updated_at", "2018-10-04 16:39:48.818930"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.8ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Cleveland Brown"], ["user_id", 1], ["created_at", "2018-10-04 16:39:48.828537"], ["updated_at", "2018-10-04 16:39:48.828537"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.7ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Cleveland Brown"], ["user_id", 1], ["created_at", "2018-10-04 16:39:48.833157"], ["updated_at", "2018-10-04 16:39:48.833157"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (1.0ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Mort Goldman"], ["user_id", 1], ["created_at", "2018-10-04 16:39:48.842926"], ["updated_at", "2018-10-04 16:39:48.842926"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (2.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.5ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Peter Griffin"], ["user_id", 1], ["created_at", "2018-10-04 16:39:48.848937"], ["updated_at", "2018-10-04 16:39:48.848937"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.8ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Carl"], ["user_id", 1], ["created_at", "2018-10-04 16:39:48.852524"], ["updated_at", "2018-10-04 16:39:48.852524"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (2.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (1.0ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Ollie Williams"], ["user_id", 1], ["created_at", "2018-10-04 16:39:48.859522"], ["updated_at", "2018-10-04 16:39:48.859522"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.6ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Principal Shephard"], ["user_id", 1], ["created_at", "2018-10-04 16:39:48.864103"], ["updated_at", "2018-10-04 16:39:48.864103"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.6ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Lois Griffin"], ["user_id", 1], ["created_at", "2018-10-04 16:39:48.867113"], ["updated_at", "2018-10-04 16:39:48.867113"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (1.6ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Mickey McFinnigan"], ["user_id", 1], ["created_at", "2018-10-04 16:39:48.873175"], ["updated_at", "2018-10-04 16:39:48.873175"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (5.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.6ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Mickey McFinnigan"], ["user_id", 1], ["created_at", "2018-10-04 16:39:48.883313"], ["updated_at", "2018-10-04 16:39:48.883313"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (20.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.7ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Peter Griffin"], ["user_id", 1], ["created_at", "2018-10-04 16:39:48.906581"], ["updated_at", "2018-10-04 16:39:48.906581"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (25.9ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Bonnie Swanson"], ["user_id", 1], ["created_at", "2018-10-04 16:39:48.910888"], ["updated_at", "2018-10-04 16:39:48.910888"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.6ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Bonnie Swanson"], ["user_id", 1], ["created_at", "2018-10-04 16:39:48.941225"], ["updated_at", "2018-10-04 16:39:48.941225"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.6ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Barabara Pewterschmidt"], ["user_id", 1], ["created_at", "2018-10-04 16:39:48.945903"], ["updated_at", "2018-10-04 16:39:48.945903"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (3.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.8ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Fouad"], ["user_id", 1], ["created_at", "2018-10-04 16:39:48.957139"], ["updated_at", "2018-10-04 16:39:48.957139"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.7ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Karen Griffin"], ["user_id", 1], ["created_at", "2018-10-04 16:39:48.961714"], ["updated_at", "2018-10-04 16:39:48.961714"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.7ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Mayor Adam West"], ["user_id", 1], ["created_at", "2018-10-04 16:39:48.965679"], ["updated_at", "2018-10-04 16:39:48.965679"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.8ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Tricia Takanawa"], ["user_id", 1], ["created_at", "2018-10-04 16:39:48.970902"], ["updated_at", "2018-10-04 16:39:48.970902"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.6ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Thelma Griffin"], ["user_id", 1], ["created_at", "2018-10-04 16:39:48.975152"], ["updated_at", "2018-10-04 16:39:48.975152"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.6ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Horace"], ["user_id", 1], ["created_at", "2018-10-04 16:39:48.979078"], ["updated_at", "2018-10-04 16:39:48.979078"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.9ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Tricia Takanawa"], ["user_id", 1], ["created_at", "2018-10-04 16:39:48.983412"], ["updated_at", "2018-10-04 16:39:48.983412"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.8ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Stewie Griffin"], ["user_id", 1], ["created_at", "2018-10-04 16:39:48.988184"], ["updated_at", "2018-10-04 16:39:48.988184"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.6ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Thelma Griffin"], ["user_id", 1], ["created_at", "2018-10-04 16:39:48.992689"], ["updated_at", "2018-10-04 16:39:48.992689"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.5ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Principal Shephard"], ["user_id", 1], ["created_at", "2018-10-04 16:39:48.996213"], ["updated_at", "2018-10-04 16:39:48.996213"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.9ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Thelma Griffin"], ["user_id", 1], ["created_at", "2018-10-04 16:39:49.001516"], ["updated_at", "2018-10-04 16:39:49.001516"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (11.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.6ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Cleveland Brown"], ["user_id", 1], ["created_at", "2018-10-04 16:39:49.017962"], ["updated_at", "2018-10-04 16:39:49.017962"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.6ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Cleveland Brown"], ["user_id", 1], ["created_at", "2018-10-04 16:39:49.022602"], ["updated_at", "2018-10-04 16:39:49.022602"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (4.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (1.2ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Joe Swanson"], ["user_id", 1], ["created_at", "2018-10-04 16:39:49.034543"], ["updated_at", "2018-10-04 16:39:49.034543"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.7ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Thelma Griffin"], ["user_id", 1], ["created_at", "2018-10-04 16:39:49.039864"], ["updated_at", "2018-10-04 16:39:49.039864"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.6ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "James Woods"], ["user_id", 1], ["created_at", "2018-10-04 16:39:49.045837"], ["updated_at", "2018-10-04 16:39:49.045837"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.8ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Chris Griffin"], ["user_id", 1], ["created_at", "2018-10-04 16:39:49.050207"], ["updated_at", "2018-10-04 16:39:49.050207"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (2.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (3.6ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Principal Shephard"], ["user_id", 1], ["created_at", "2018-10-04 16:39:49.059860"], ["updated_at", "2018-10-04 16:39:49.059860"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.8ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Meg Griffin"], ["user_id", 1], ["created_at", "2018-10-04 16:39:49.067619"], ["updated_at", "2018-10-04 16:39:49.067619"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.7ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Evil Monkey"], ["user_id", 1], ["created_at", "2018-10-04 16:39:49.072904"], ["updated_at", "2018-10-04 16:39:49.072904"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.5ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Thelma Griffin"], ["user_id", 1], ["created_at", "2018-10-04 16:39:49.077969"], ["updated_at", "2018-10-04 16:39:49.077969"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.5ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Glenn Quagmire"], ["user_id", 1], ["created_at", "2018-10-04 16:39:49.081828"], ["updated_at", "2018-10-04 16:39:49.081828"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.9ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Bonnie Swanson"], ["user_id", 1], ["created_at", "2018-10-04 16:39:49.086255"], ["updated_at", "2018-10-04 16:39:49.086255"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.6ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Lois Griffin"], ["user_id", 1], ["created_at", "2018-10-04 16:39:49.094233"], ["updated_at", "2018-10-04 16:39:49.094233"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (2.8ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Joe Swanson"], ["user_id", 1], ["created_at", "2018-10-04 16:39:49.100275"], ["updated_at", "2018-10-04 16:39:49.100275"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (8.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (2.8ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Mayor Adam West"], ["user_id", 1], ["created_at", "2018-10-04 16:39:49.135190"], ["updated_at", "2018-10-04 16:39:49.135190"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (1.0ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Peter Griffin"], ["user_id", 1], ["created_at", "2018-10-04 16:39:49.141548"], ["updated_at", "2018-10-04 16:39:49.141548"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.8ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Tricia Takanawa"], ["user_id", 1], ["created_at", "2018-10-04 16:39:49.149929"], ["updated_at", "2018-10-04 16:39:49.149929"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.6ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Joyce Kinney"], ["user_id", 1], ["created_at", "2018-10-04 16:39:49.156513"], ["updated_at", "2018-10-04 16:39:49.156513"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.6ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Joyce Kinney"], ["user_id", 1], ["created_at", "2018-10-04 16:39:49.160700"], ["updated_at", "2018-10-04 16:39:49.160700"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.7ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Ollie Williams"], ["user_id", 1], ["created_at", "2018-10-04 16:39:49.171860"], ["updated_at", "2018-10-04 16:39:49.171860"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (1.6ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.4ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Joe Swanson"], ["user_id", 1], ["created_at", "2018-10-04 16:39:49.182456"], ["updated_at", "2018-10-04 16:39:49.182456"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (1.1ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Ollie Williams"], ["user_id", 1], ["created_at", "2018-10-04 16:39:49.185682"], ["updated_at", "2018-10-04 16:39:49.185682"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "items"[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[35m (4.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/bin/rake:23
+Migrating to DeviseCreateUsers (20180928145622)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20180928145622_devise_create_users.rb:5
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  ↳ db/migrate/20180928145622_devise_create_users.rb:39
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  ↳ db/migrate/20180928145622_devise_create_users.rb:40
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180928145622"]]
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[35m (6.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/bin/rake:23
+Migrating to AddConfirmableToDevise (20180928185940)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "users" ADD "confirmation_token" varchar[0m
+  ↳ db/migrate/20180928185940_add_confirmable_to_devise.rb:4
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "confirmed_at" datetime[0m
+  ↳ db/migrate/20180928185940_add_confirmable_to_devise.rb:5
+  [1m[35m (1.1ms)[0m  [1m[35mALTER TABLE "users" ADD "confirmation_sent_at" datetime[0m
+  ↳ db/migrate/20180928185940_add_confirmable_to_devise.rb:6
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_confirmation_token" ON "users" ("confirmation_token")[0m
+  ↳ db/migrate/20180928185940_add_confirmable_to_devise.rb:8
+  [1m[36mUser Update All (0.1ms)[0m  [1m[33mUPDATE "users" SET "confirmed_at" = '2018-10-04 16:43:40.249343'[0m
+  ↳ db/migrate/20180928185940_add_confirmable_to_devise.rb:12
+  [1m[36mActiveRecord::SchemaMigration Create (3.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180928185940"]]
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/bin/rake:23
+Migrating to CreateItems (20181001182504)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "items" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_d4b6334db2"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  ↳ db/migrate/20181001182504_create_items.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_items_on_user_id" ON "items" ("user_id")[0m
+  ↳ db/migrate/20181001182504_create_items.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181001182504"]]
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-10-04 16:43:40.316802"], ["updated_at", "2018-10-04 16:43:40.316802"]]
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:1
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "virgilio@example.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:1
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["email", "virgilio@example.com"], ["encrypted_password", "$2a$11$.BzXNWvRWTQZkDwOoK0N/...mCByiIZcVEyxOIm39VwvVPVifNVn."], ["created_at", "2018-10-04 16:43:40.631117"], ["updated_at", "2018-10-04 16:43:40.631117"], ["confirmation_token", "tt81Lg4xs-jotYMJmTxR"], ["confirmation_sent_at", "2018-10-04 16:43:40.631257"]]
+  ↳ db/seeds.rb:1
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:1
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (2.7ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 69.2ms
+Sent mail to virgilio@example.com (11.7ms)
+Date: Thu, 04 Oct 2018 12:43:40 -0400
+From: Blocitoff@example.com
+Reply-To: Blocitoff@example.com
+To: virgilio@example.com
+Message-ID: <5bb6433ccfec1_14cbb3ff68283f7e4709e9@lcaton-mbp.local.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome virgilio@example.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=tt81Lg4xs-jotYMJmTxR">Confirm my account</a></p>
+
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.6ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "I’ve got an idea–an idea so smart that my head would explode if I even began to know what I’m talking about."], ["user_id", 1], ["created_at", "2018-10-04 16:43:40.874317"], ["updated_at", "2018-10-04 16:43:40.874317"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.4ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Amazing. One second of a stranger's voice on a phone, and you've got full Bollywood."], ["user_id", 1], ["created_at", "2018-10-04 16:43:40.878362"], ["updated_at", "2018-10-04 16:43:40.878362"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.5ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Now I may be an idiot, but there’s one thing I am not sir, and that sir, is an idiot."], ["user_id", 1], ["created_at", "2018-10-04 16:43:40.881423"], ["updated_at", "2018-10-04 16:43:40.881423"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (1.0ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "I’ve got an idea–an idea so smart that my head would explode if I even began to know what I’m talking about."], ["user_id", 1], ["created_at", "2018-10-04 16:43:40.884719"], ["updated_at", "2018-10-04 16:43:40.884719"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.4ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "I am so not competitive. In fact, I am the least non-competitive. So I win."], ["user_id", 1], ["created_at", "2018-10-04 16:43:40.892443"], ["updated_at", "2018-10-04 16:43:40.892443"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.4ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "You know, this is great guys. Drinking and eating garbage. I'm glad we all took a mental health day."], ["user_id", 1], ["created_at", "2018-10-04 16:43:40.895702"], ["updated_at", "2018-10-04 16:43:40.895702"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.7ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Amazing. One second of a stranger's voice on a phone, and you've got full Bollywood."], ["user_id", 1], ["created_at", "2018-10-04 16:43:40.898562"], ["updated_at", "2018-10-04 16:43:40.898562"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (4.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.4ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Now I may be an idiot, but there’s one thing I am not sir, and that sir, is an idiot."], ["user_id", 1], ["created_at", "2018-10-04 16:43:40.905700"], ["updated_at", "2018-10-04 16:43:40.905700"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.7ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Amazing. One second of a stranger's voice on a phone, and you've got full Bollywood."], ["user_id", 1], ["created_at", "2018-10-04 16:43:40.908867"], ["updated_at", "2018-10-04 16:43:40.908867"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.7ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "It’s Peanut Butter Jelly Time."], ["user_id", 1], ["created_at", "2018-10-04 16:43:40.914436"], ["updated_at", "2018-10-04 16:43:40.914436"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (1.0ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "People in love can overcome anything."], ["user_id", 1], ["created_at", "2018-10-04 16:43:40.918895"], ["updated_at", "2018-10-04 16:43:40.918895"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (3.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.6ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "A degenerate, am I? Well, you are a festisio! See? I can make up words too, sister."], ["user_id", 1], ["created_at", "2018-10-04 16:43:40.940041"], ["updated_at", "2018-10-04 16:43:40.940041"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (5.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.8ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Isn’t ‘bribe’ just another word for ‘love’?"], ["user_id", 1], ["created_at", "2018-10-04 16:43:40.948811"], ["updated_at", "2018-10-04 16:43:40.948811"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (8.1ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Amazing. One second of a stranger's voice on a phone, and you've got full Bollywood."], ["user_id", 1], ["created_at", "2018-10-04 16:43:40.952780"], ["updated_at", "2018-10-04 16:43:40.952780"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.6ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Hey, don't try to take this away from me. This is the only thing I've ever been good at. Well, this and timing my farts to a thunderstorm."], ["user_id", 1], ["created_at", "2018-10-04 16:43:40.969419"], ["updated_at", "2018-10-04 16:43:40.969419"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (3.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (4.2ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "It’s Peanut Butter Jelly Time."], ["user_id", 1], ["created_at", "2018-10-04 16:43:40.976339"], ["updated_at", "2018-10-04 16:43:40.976339"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.9ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "People in love can overcome anything."], ["user_id", 1], ["created_at", "2018-10-04 16:43:40.983683"], ["updated_at", "2018-10-04 16:43:40.983683"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.5ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Now I may be an idiot, but there’s one thing I am not sir, and that sir, is an idiot."], ["user_id", 1], ["created_at", "2018-10-04 16:43:40.996150"], ["updated_at", "2018-10-04 16:43:40.996150"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.6ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Joe, gag on my fat dauber."], ["user_id", 1], ["created_at", "2018-10-04 16:43:40.999786"], ["updated_at", "2018-10-04 16:43:40.999786"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.6ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "I am so not competitive. In fact, I am the least non-competitive. So I win."], ["user_id", 1], ["created_at", "2018-10-04 16:43:41.006393"], ["updated_at", "2018-10-04 16:43:41.006393"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (1.5ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "You know, this is great guys. Drinking and eating garbage. I'm glad we all took a mental health day."], ["user_id", 1], ["created_at", "2018-10-04 16:43:41.012121"], ["updated_at", "2018-10-04 16:43:41.012121"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.6ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "A degenerate, am I? Well, you are a festisio! See? I can make up words too, sister."], ["user_id", 1], ["created_at", "2018-10-04 16:43:41.019424"], ["updated_at", "2018-10-04 16:43:41.019424"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (3.2ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "A degenerate, am I? Well, you are a festisio! See? I can make up words too, sister."], ["user_id", 1], ["created_at", "2018-10-04 16:43:41.045817"], ["updated_at", "2018-10-04 16:43:41.045817"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.8ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "I am so not competitive. In fact, I am the least non-competitive. So I win."], ["user_id", 1], ["created_at", "2018-10-04 16:43:41.054370"], ["updated_at", "2018-10-04 16:43:41.054370"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (2.1ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "You know, this is great guys. Drinking and eating garbage. I'm glad we all took a mental health day."], ["user_id", 1], ["created_at", "2018-10-04 16:43:41.059630"], ["updated_at", "2018-10-04 16:43:41.059630"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (1.0ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "I’ve got an idea–an idea so smart that my head would explode if I even began to know what I’m talking about."], ["user_id", 1], ["created_at", "2018-10-04 16:43:41.074428"], ["updated_at", "2018-10-04 16:43:41.074428"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (6.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (1.8ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Now I may be an idiot, but there’s one thing I am not sir, and that sir, is an idiot."], ["user_id", 1], ["created_at", "2018-10-04 16:43:41.084463"], ["updated_at", "2018-10-04 16:43:41.084463"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (9.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.7ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "It’s Peanut Butter Jelly Time."], ["user_id", 1], ["created_at", "2018-10-04 16:43:41.107138"], ["updated_at", "2018-10-04 16:43:41.107138"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (3.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (1.3ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "It’s Peanut Butter Jelly Time."], ["user_id", 1], ["created_at", "2018-10-04 16:43:41.115522"], ["updated_at", "2018-10-04 16:43:41.115522"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (6.8ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "I’ve got an idea–an idea so smart that my head would explode if I even began to know what I’m talking about."], ["user_id", 1], ["created_at", "2018-10-04 16:43:41.123175"], ["updated_at", "2018-10-04 16:43:41.123175"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.6ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Now I may be an idiot, but there’s one thing I am not sir, and that sir, is an idiot."], ["user_id", 1], ["created_at", "2018-10-04 16:43:41.163378"], ["updated_at", "2018-10-04 16:43:41.163378"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (2.1ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "People in love can overcome anything."], ["user_id", 1], ["created_at", "2018-10-04 16:43:41.167519"], ["updated_at", "2018-10-04 16:43:41.167519"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (1.3ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Hey, don't try to take this away from me. This is the only thing I've ever been good at. Well, this and timing my farts to a thunderstorm."], ["user_id", 1], ["created_at", "2018-10-04 16:43:41.178653"], ["updated_at", "2018-10-04 16:43:41.178653"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (1.3ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "A degenerate, am I? Well, you are a festisio! See? I can make up words too, sister."], ["user_id", 1], ["created_at", "2018-10-04 16:43:41.184878"], ["updated_at", "2018-10-04 16:43:41.184878"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (1.6ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "I am so not competitive. In fact, I am the least non-competitive. So I win."], ["user_id", 1], ["created_at", "2018-10-04 16:43:41.197325"], ["updated_at", "2018-10-04 16:43:41.197325"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (1.1ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "You know, this is great guys. Drinking and eating garbage. I'm glad we all took a mental health day."], ["user_id", 1], ["created_at", "2018-10-04 16:43:41.204436"], ["updated_at", "2018-10-04 16:43:41.204436"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.6ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Isn’t ‘bribe’ just another word for ‘love’?"], ["user_id", 1], ["created_at", "2018-10-04 16:43:41.209350"], ["updated_at", "2018-10-04 16:43:41.209350"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.6ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "It’s Peanut Butter Jelly Time."], ["user_id", 1], ["created_at", "2018-10-04 16:43:41.214610"], ["updated_at", "2018-10-04 16:43:41.214610"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.5ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "It’s Peanut Butter Jelly Time."], ["user_id", 1], ["created_at", "2018-10-04 16:43:41.218998"], ["updated_at", "2018-10-04 16:43:41.218998"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.6ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "It’s Peanut Butter Jelly Time."], ["user_id", 1], ["created_at", "2018-10-04 16:43:41.222171"], ["updated_at", "2018-10-04 16:43:41.222171"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.6ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "You know, this is great guys. Drinking and eating garbage. I'm glad we all took a mental health day."], ["user_id", 1], ["created_at", "2018-10-04 16:43:41.227442"], ["updated_at", "2018-10-04 16:43:41.227442"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.6ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Now I may be an idiot, but there’s one thing I am not sir, and that sir, is an idiot."], ["user_id", 1], ["created_at", "2018-10-04 16:43:41.232361"], ["updated_at", "2018-10-04 16:43:41.232361"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (2.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (2.2ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "It’s Peanut Butter Jelly Time."], ["user_id", 1], ["created_at", "2018-10-04 16:43:41.248449"], ["updated_at", "2018-10-04 16:43:41.248449"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.7ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "I’ve got an idea–an idea so smart that my head would explode if I even began to know what I’m talking about."], ["user_id", 1], ["created_at", "2018-10-04 16:43:41.254956"], ["updated_at", "2018-10-04 16:43:41.254956"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.9ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "You know, this is great guys. Drinking and eating garbage. I'm glad we all took a mental health day."], ["user_id", 1], ["created_at", "2018-10-04 16:43:41.259140"], ["updated_at", "2018-10-04 16:43:41.259140"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (2.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.6ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "It’s Peanut Butter Jelly Time."], ["user_id", 1], ["created_at", "2018-10-04 16:43:41.266576"], ["updated_at", "2018-10-04 16:43:41.266576"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.7ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "You know, this is great guys. Drinking and eating garbage. I'm glad we all took a mental health day."], ["user_id", 1], ["created_at", "2018-10-04 16:43:41.270805"], ["updated_at", "2018-10-04 16:43:41.270805"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (4.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.6ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Amazing. One second of a stranger's voice on a phone, and you've got full Bollywood."], ["user_id", 1], ["created_at", "2018-10-04 16:43:41.281680"], ["updated_at", "2018-10-04 16:43:41.281680"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (12.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.6ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "You know, this is great guys. Drinking and eating garbage. I'm glad we all took a mental health day."], ["user_id", 1], ["created_at", "2018-10-04 16:43:41.298147"], ["updated_at", "2018-10-04 16:43:41.298147"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (1.0ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Hey, don't try to take this away from me. This is the only thing I've ever been good at. Well, this and timing my farts to a thunderstorm."], ["user_id", 1], ["created_at", "2018-10-04 16:43:41.302229"], ["updated_at", "2018-10-04 16:43:41.302229"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "items"[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/bin/rake:23
+Migrating to DeviseCreateUsers (20180928145622)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20180928145622_devise_create_users.rb:5
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  ↳ db/migrate/20180928145622_devise_create_users.rb:39
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  ↳ db/migrate/20180928145622_devise_create_users.rb:40
+  [1m[36mActiveRecord::SchemaMigration Create (1.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180928145622"]]
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[35m (2.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/bin/rake:23
+Migrating to AddConfirmableToDevise (20180928185940)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "users" ADD "confirmation_token" varchar[0m
+  ↳ db/migrate/20180928185940_add_confirmable_to_devise.rb:4
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "confirmed_at" datetime[0m
+  ↳ db/migrate/20180928185940_add_confirmable_to_devise.rb:5
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "confirmation_sent_at" datetime[0m
+  ↳ db/migrate/20180928185940_add_confirmable_to_devise.rb:6
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_confirmation_token" ON "users" ("confirmation_token")[0m
+  ↳ db/migrate/20180928185940_add_confirmable_to_devise.rb:8
+  [1m[36mUser Update All (0.1ms)[0m  [1m[33mUPDATE "users" SET "confirmed_at" = '2018-10-04 16:45:41.667927'[0m
+  ↳ db/migrate/20180928185940_add_confirmable_to_devise.rb:12
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180928185940"]]
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/bin/rake:23
+Migrating to CreateItems (20181001182504)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "items" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_d4b6334db2"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  ↳ db/migrate/20181001182504_create_items.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_items_on_user_id" ON "items" ("user_id")[0m
+  ↳ db/migrate/20181001182504_create_items.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (2.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181001182504"]]
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[35m (3.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-10-04 16:45:41.697157"], ["updated_at", "2018-10-04 16:45:41.697157"]]
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:1
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "apple@gmail.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:1
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["email", "apple@gmail.com"], ["encrypted_password", "$2a$11$SKPWmF4QpSx2PDufVQgHie27eOEc2UcXZKZ4eHiPQfijArEyYEeke"], ["created_at", "2018-10-04 16:45:41.906633"], ["updated_at", "2018-10-04 16:45:41.906633"], ["confirmation_token", "xSPmC8REYU5RiQzxRnz1"], ["confirmation_sent_at", "2018-10-04 16:45:41.906777"]]
+  ↳ db/seeds.rb:1
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:1
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (2.6ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 219.9ms
+Sent mail to apple@gmail.com (11.1ms)
+Date: Thu, 04 Oct 2018 12:45:42 -0400
+From: Blocitoff@example.com
+Reply-To: Blocitoff@example.com
+To: apple@gmail.com
+Message-ID: <5bb643b648adc_14cf23fe13b03f7e46289e@lcaton-mbp.local.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome apple@gmail.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=xSPmC8REYU5RiQzxRnz1">Confirm my account</a></p>
+
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.5ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Hey, don't try to take this away from me. This is the only thing I've ever been good at. Well, this and timing my farts to a thunderstorm."], ["user_id", 1], ["created_at", "2018-10-04 16:45:42.319738"], ["updated_at", "2018-10-04 16:45:42.319738"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.7ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Amazing. One second of a stranger's voice on a phone, and you've got full Bollywood."], ["user_id", 1], ["created_at", "2018-10-04 16:45:42.323289"], ["updated_at", "2018-10-04 16:45:42.323289"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.5ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Amazing. One second of a stranger's voice on a phone, and you've got full Bollywood."], ["user_id", 1], ["created_at", "2018-10-04 16:45:42.326657"], ["updated_at", "2018-10-04 16:45:42.326657"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.8ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "I’ve got an idea–an idea so smart that my head would explode if I even began to know what I’m talking about."], ["user_id", 1], ["created_at", "2018-10-04 16:45:42.330294"], ["updated_at", "2018-10-04 16:45:42.330294"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.5ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "You know, this is great guys. Drinking and eating garbage. I'm glad we all took a mental health day."], ["user_id", 1], ["created_at", "2018-10-04 16:45:42.335463"], ["updated_at", "2018-10-04 16:45:42.335463"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (1.6ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "People in love can overcome anything."], ["user_id", 1], ["created_at", "2018-10-04 16:45:42.339632"], ["updated_at", "2018-10-04 16:45:42.339632"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (4.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.6ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Isn’t ‘bribe’ just another word for ‘love’?"], ["user_id", 1], ["created_at", "2018-10-04 16:45:42.348210"], ["updated_at", "2018-10-04 16:45:42.348210"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (29.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (6.9ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "I am so not competitive. In fact, I am the least non-competitive. So I win."], ["user_id", 1], ["created_at", "2018-10-04 16:45:42.384052"], ["updated_at", "2018-10-04 16:45:42.384052"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (6.7ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "People in love can overcome anything."], ["user_id", 1], ["created_at", "2018-10-04 16:45:42.401670"], ["updated_at", "2018-10-04 16:45:42.401670"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.7ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "I am so not competitive. In fact, I am the least non-competitive. So I win."], ["user_id", 1], ["created_at", "2018-10-04 16:45:42.411686"], ["updated_at", "2018-10-04 16:45:42.411686"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.6ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "People in love can overcome anything."], ["user_id", 1], ["created_at", "2018-10-04 16:45:42.418184"], ["updated_at", "2018-10-04 16:45:42.418184"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.6ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "It’s Peanut Butter Jelly Time."], ["user_id", 1], ["created_at", "2018-10-04 16:45:42.425622"], ["updated_at", "2018-10-04 16:45:42.425622"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.8ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "I am so not competitive. In fact, I am the least non-competitive. So I win."], ["user_id", 1], ["created_at", "2018-10-04 16:45:42.431424"], ["updated_at", "2018-10-04 16:45:42.431424"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (1.2ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "I’ve got an idea–an idea so smart that my head would explode if I even began to know what I’m talking about."], ["user_id", 1], ["created_at", "2018-10-04 16:45:42.437264"], ["updated_at", "2018-10-04 16:45:42.437264"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (1.0ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "It’s Peanut Butter Jelly Time."], ["user_id", 1], ["created_at", "2018-10-04 16:45:42.443682"], ["updated_at", "2018-10-04 16:45:42.443682"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (23.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (6.1ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Isn’t ‘bribe’ just another word for ‘love’?"], ["user_id", 1], ["created_at", "2018-10-04 16:45:42.470754"], ["updated_at", "2018-10-04 16:45:42.470754"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.8ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Isn’t ‘bribe’ just another word for ‘love’?"], ["user_id", 1], ["created_at", "2018-10-04 16:45:42.483273"], ["updated_at", "2018-10-04 16:45:42.483273"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.7ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Joe, gag on my fat dauber."], ["user_id", 1], ["created_at", "2018-10-04 16:45:42.487872"], ["updated_at", "2018-10-04 16:45:42.487872"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.8ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Isn’t ‘bribe’ just another word for ‘love’?"], ["user_id", 1], ["created_at", "2018-10-04 16:45:42.492318"], ["updated_at", "2018-10-04 16:45:42.492318"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.7ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "I’ve got an idea–an idea so smart that my head would explode if I even began to know what I’m talking about."], ["user_id", 1], ["created_at", "2018-10-04 16:45:42.497117"], ["updated_at", "2018-10-04 16:45:42.497117"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "items"[0m
+  ↳ db/seeds.rb:13
