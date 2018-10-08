@@ -5,7 +5,7 @@ user = User.create!(
 20.times do
   Item.create!(
     user: user,
-    name: Faker::FamilyGuy.quote
+    name: Faker::Appliance.brand
   )
 end
 puts "Seed Finished"

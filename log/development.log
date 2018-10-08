@@ -6969,3 +6969,553 @@ Content-Transfer-Encoding: 7bit
   ↳ db/seeds.rb:12
   [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "items"[0m
   ↳ db/seeds.rb:13
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to DeviseCreateUsers (20180928145622)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20180928145622_devise_create_users.rb:5
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  ↳ db/migrate/20180928145622_devise_create_users.rb:39
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  ↳ db/migrate/20180928145622_devise_create_users.rb:40
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180928145622"]]
+  ↳ bin/rails:9
+  [1m[35m (2.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to AddConfirmableToDevise (20180928185940)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (1.1ms)[0m  [1m[35mALTER TABLE "users" ADD "confirmation_token" varchar[0m
+  ↳ db/migrate/20180928185940_add_confirmable_to_devise.rb:4
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "users" ADD "confirmed_at" datetime[0m
+  ↳ db/migrate/20180928185940_add_confirmable_to_devise.rb:5
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "confirmation_sent_at" datetime[0m
+  ↳ db/migrate/20180928185940_add_confirmable_to_devise.rb:6
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_confirmation_token" ON "users" ("confirmation_token")[0m
+  ↳ db/migrate/20180928185940_add_confirmable_to_devise.rb:8
+  [1m[36mUser Update All (0.1ms)[0m  [1m[33mUPDATE "users" SET "confirmed_at" = '2018-10-08 16:40:20.521883'[0m
+  ↳ db/migrate/20180928185940_add_confirmable_to_devise.rb:12
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180928185940"]]
+  ↳ bin/rails:9
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateItems (20181001182504)
+  [1m[35m (0.8ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "items" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_d4b6334db2"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  ↳ db/migrate/20181001182504_create_items.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_items_on_user_id" ON "items" ("user_id")[0m
+  ↳ db/migrate/20181001182504_create_items.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181001182504"]]
+  ↳ bin/rails:9
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-10-08 16:40:20.569557"], ["updated_at", "2018-10-08 16:40:20.569557"]]
+  ↳ bin/rails:9
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:1
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "apple@gmail.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:1
+  [1m[36mUser Create (1.0ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["email", "apple@gmail.com"], ["encrypted_password", "$2a$11$LPvLmt8q.kqTz9truZ3iueb6EhkJPwR2HrZ4lM.fA.I1jpREG2ePK"], ["created_at", "2018-10-08 16:40:20.772446"], ["updated_at", "2018-10-08 16:40:20.772446"], ["confirmation_token", "jEWsMRCERnbf5X8Qy-pG"], ["confirmation_sent_at", "2018-10-08 16:40:20.772621"]]
+  ↳ db/seeds.rb:1
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:1
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (2.5ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 244.0ms
+Sent mail to apple@gmail.com (24.7ms)
+Date: Mon, 08 Oct 2018 12:40:21 -0400
+From: Blocitoff@example.com
+Reply-To: Blocitoff@example.com
+To: apple@gmail.com
+Message-ID: <5bbb88752f9ac_3fe13fc86f8317d41973c@lcaton-mbp.local.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome apple@gmail.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=jEWsMRCERnbf5X8Qy-pG">Confirm my account</a></p>
+
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.8ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Samsung"], ["user_id", 1], ["created_at", "2018-10-08 16:40:21.231891"], ["updated_at", "2018-10-08 16:40:21.231891"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.5ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Electrolux"], ["user_id", 1], ["created_at", "2018-10-08 16:40:21.236082"], ["updated_at", "2018-10-08 16:40:21.236082"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.5ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Electrolux"], ["user_id", 1], ["created_at", "2018-10-08 16:40:21.239340"], ["updated_at", "2018-10-08 16:40:21.239340"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.4ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Whirlpool"], ["user_id", 1], ["created_at", "2018-10-08 16:40:21.243106"], ["updated_at", "2018-10-08 16:40:21.243106"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (1.0ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Blue Star"], ["user_id", 1], ["created_at", "2018-10-08 16:40:21.246992"], ["updated_at", "2018-10-08 16:40:21.246992"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.8ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Blue Star"], ["user_id", 1], ["created_at", "2018-10-08 16:40:21.253474"], ["updated_at", "2018-10-08 16:40:21.253474"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.5ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "KitchenAid"], ["user_id", 1], ["created_at", "2018-10-08 16:40:21.258114"], ["updated_at", "2018-10-08 16:40:21.258114"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (3.2ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Amana"], ["user_id", 1], ["created_at", "2018-10-08 16:40:21.262193"], ["updated_at", "2018-10-08 16:40:21.262193"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.5ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "KitchenAid"], ["user_id", 1], ["created_at", "2018-10-08 16:40:21.269192"], ["updated_at", "2018-10-08 16:40:21.269192"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.5ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Samsung"], ["user_id", 1], ["created_at", "2018-10-08 16:40:21.272735"], ["updated_at", "2018-10-08 16:40:21.272735"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (1.2ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Admiral"], ["user_id", 1], ["created_at", "2018-10-08 16:40:21.278066"], ["updated_at", "2018-10-08 16:40:21.278066"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.9ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "KitchenAid"], ["user_id", 1], ["created_at", "2018-10-08 16:40:21.281994"], ["updated_at", "2018-10-08 16:40:21.281994"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.6ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Siemens"], ["user_id", 1], ["created_at", "2018-10-08 16:40:21.286255"], ["updated_at", "2018-10-08 16:40:21.286255"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (1.0ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Bosch"], ["user_id", 1], ["created_at", "2018-10-08 16:40:21.290650"], ["updated_at", "2018-10-08 16:40:21.290650"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.7ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "KitchenAid"], ["user_id", 1], ["created_at", "2018-10-08 16:40:21.296412"], ["updated_at", "2018-10-08 16:40:21.296412"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (1.1ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Amana"], ["user_id", 1], ["created_at", "2018-10-08 16:40:21.302085"], ["updated_at", "2018-10-08 16:40:21.302085"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (5.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.7ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Sharp"], ["user_id", 1], ["created_at", "2018-10-08 16:40:21.312567"], ["updated_at", "2018-10-08 16:40:21.312567"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.6ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "KitchenAid"], ["user_id", 1], ["created_at", "2018-10-08 16:40:21.318084"], ["updated_at", "2018-10-08 16:40:21.318084"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (18.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (0.6ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Franke"], ["user_id", 1], ["created_at", "2018-10-08 16:40:21.339300"], ["updated_at", "2018-10-08 16:40:21.339300"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (6.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[36mItem Create (1.7ms)[0m  [1m[32mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Whirlpool"], ["user_id", 1], ["created_at", "2018-10-08 16:40:21.355833"], ["updated_at", "2018-10-08 16:40:21.355833"]]
+  ↳ db/seeds.rb:6
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:6
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "items"[0m
+  ↳ db/seeds.rb:13
+Started GET "/users/id" for 127.0.0.1 at 2018-10-08 15:49:33 -0400
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"id"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering users/show.html.erb within layouts/application
+  Rendered items/_form.html.erb (12.7ms)
+  [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/items/_item.html.erb:2
+  Rendered items/_item.html.erb (14.6ms)
+  Rendered users/show.html.erb within layouts/application (40.8ms)
+Completed 200 OK in 677ms (Views: 615.0ms | ActiveRecord: 2.6ms)
+
+
+Started DELETE "/users/id" for 127.0.0.1 at 2018-10-08 15:49:37 -0400
+Processing by UsersController#destroy as JS
+  Parameters: {"id"=>"id"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering users/destroy.js.erb
+  Rendered users/destroy.js.erb (0.3ms)
+Completed 200 OK in 22ms (Views: 14.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/id" for 127.0.0.1 at 2018-10-08 15:50:19 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"id"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering users/show.html.erb within layouts/application
+  Rendered items/_form.html.erb (1.2ms)
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/items/_item.html.erb:2
+  Rendered items/_item.html.erb (326.2ms)
+  Rendered users/show.html.erb within layouts/application (331.8ms)
+Completed 500 Internal Server Error in 343ms (ActiveRecord: 0.4ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `item' for #<#<Class:0x007fa82ed63bb0>:0x007fa83437e1a8>
+Did you mean?  @items):
+    4:       <li><%= i.name %></li>
+    5:     </div>
+    6:     <div class="col-md-1">
+    7:       <%= link_to "", item, method: :delete, data: { confirm: 'Are you sure?', remote: true }, class: 'glyphicon glyphicon-ok' %>
+    8:     </div>
+    9:   <% end %>
+   10: </ul>
+  
+app/views/items/_item.html.erb:7:in `block in _app_views_items__item_html_erb__3220210071036373470_70180203628280'
+app/views/items/_item.html.erb:2:in `_app_views_items__item_html_erb__3220210071036373470_70180203628280'
+app/views/users/show.html.erb:9:in `_app_views_users_show_html_erb__2092576871775465071_70180203657140'
+Started GET "/users/id" for 127.0.0.1 at 2018-10-08 15:50:25 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"id"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering users/show.html.erb within layouts/application
+  Rendered items/_form.html.erb (1.2ms)
+  [1m[36mItem Load (0.4ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/items/_item.html.erb:2
+  Rendered items/_item.html.erb (6.3ms)
+  Rendered users/show.html.erb within layouts/application (12.6ms)
+Completed 200 OK in 62ms (Views: 55.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/id" for 127.0.0.1 at 2018-10-08 15:52:26 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"id"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering users/show.html.erb within layouts/application
+  Rendered items/_form.html.erb (4.8ms)
+  [1m[36mItem Load (0.4ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/items/_item.html.erb:2
+  Rendered items/_item.html.erb (14.9ms)
+  Rendered users/show.html.erb within layouts/application (33.9ms)
+Completed 200 OK in 145ms (Views: 113.5ms | ActiveRecord: 2.7ms)
+
+
+Started DELETE "/users/id" for 127.0.0.1 at 2018-10-08 15:52:32 -0400
+Processing by UsersController#destroy as JS
+  Parameters: {"id"=>"id"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT  "items".* FROM "items" WHERE "items"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 11]]
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1@global/gems/did_you_mean-1.1.0/lib/did_you_mean/core_ext/name_error.rb:10
+  [1m[36mCACHE Item Load (0.0ms)[0m  [1m[34mSELECT  "items".* FROM "items" WHERE "items"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 11]]
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1@global/gems/did_you_mean-1.1.0/lib/did_you_mean/core_ext/name_error.rb:6
+Completed 500 Internal Server Error in 226ms (ActiveRecord: 0.4ms)
+
+
+  
+  [1m[36mCACHE Item Load (0.0ms)[0m  [1m[34mSELECT  "items".* FROM "items" WHERE "items"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 11]]
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1@global/gems/did_you_mean-1.1.0/lib/did_you_mean/core_ext/name_error.rb:10
+NameError (undefined local variable or method `items_url' for #<UsersController:0x007fa83431b0f8>):
+  
+app/controllers/users_controller.rb:16:in `block (2 levels) in destroy'
+app/controllers/users_controller.rb:15:in `destroy'
+Started GET "/users/id" for 127.0.0.1 at 2018-10-08 15:53:04 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"id"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering users/show.html.erb within layouts/application
+  Rendered items/_form.html.erb (3.5ms)
+  [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/items/_item.html.erb:2
+  Rendered items/_item.html.erb (15.0ms)
+  Rendered users/show.html.erb within layouts/application (42.9ms)
+Completed 200 OK in 131ms (Views: 101.6ms | ActiveRecord: 3.4ms)
+
+
+Started DELETE "/users/id" for 127.0.0.1 at 2018-10-08 15:53:08 -0400
+Processing by UsersController#destroy as JS
+  Parameters: {"id"=>"id"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionController::UrlGenerationError (No route matches {:action=>"show", :controller=>"items", :id=>"id"}, missing required keys: [:user_id]):
+  
+app/controllers/users_controller.rb:16:in `block (2 levels) in destroy'
+app/controllers/users_controller.rb:15:in `destroy'
+Started GET "/users/id" for 127.0.0.1 at 2018-10-08 15:54:06 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"id"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering users/show.html.erb within layouts/application
+  Rendered items/_form.html.erb (2.4ms)
+  [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/items/_item.html.erb:2
+  Rendered items/_item.html.erb (10.8ms)
+  Rendered users/show.html.erb within layouts/application (26.5ms)
+Completed 200 OK in 107ms (Views: 76.0ms | ActiveRecord: 2.4ms)
+
+
+Started DELETE "/users/id" for 127.0.0.1 at 2018-10-08 15:54:11 -0400
+Processing by UsersController#destroy as JS
+  Parameters: {"id"=>"id"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionController::UrlGenerationError (No route matches {:action=>"show", :controller=>"items", :id=>"id"}, missing required keys: [:user_id]):
+  
+app/controllers/users_controller.rb:16:in `block (2 levels) in destroy'
+app/controllers/users_controller.rb:15:in `destroy'
+Started GET "/users/id" for 127.0.0.1 at 2018-10-08 15:54:35 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"id"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering users/show.html.erb within layouts/application
+  Rendered items/_form.html.erb (3.7ms)
+  [1m[36mItem Load (0.6ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/items/_item.html.erb:2
+  Rendered items/_item.html.erb (18.8ms)
+  Rendered users/show.html.erb within layouts/application (33.8ms)
+Completed 200 OK in 106ms (Views: 78.4ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/users/id" for 127.0.0.1 at 2018-10-08 15:55:25 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"id"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering users/show.html.erb within layouts/application
+  Rendered items/_form.html.erb (3.6ms)
+  [1m[36mItem Load (1.3ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/items/_item.html.erb:2
+  Rendered items/_item.html.erb (19.5ms)
+  Rendered users/show.html.erb within layouts/application (41.2ms)
+Completed 200 OK in 117ms (Views: 90.4ms | ActiveRecord: 3.1ms)
+
+
+Started DELETE "/users/id" for 127.0.0.1 at 2018-10-08 15:55:28 -0400
+Processing by UsersController#destroy as JS
+  Parameters: {"id"=>"id"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Redirected to http://localhost:3000/users/id
+Completed 200 OK in 4ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/users/id" for 127.0.0.1 at 2018-10-08 15:55:28 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"id"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering users/show.html.erb within layouts/application
+  Rendered items/_form.html.erb (5.0ms)
+  [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/items/_item.html.erb:2
+  Rendered items/_item.html.erb (11.5ms)
+  Rendered users/show.html.erb within layouts/application (23.9ms)
+Completed 200 OK in 89ms (Views: 81.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/id" for 127.0.0.1 at 2018-10-08 15:55:40 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"id"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering users/show.html.erb within layouts/application
+  Rendered items/_form.html.erb (1.3ms)
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/items/_item.html.erb:2
+  Rendered items/_item.html.erb (5.9ms)
+  Rendered users/show.html.erb within layouts/application (12.1ms)
+Completed 200 OK in 52ms (Views: 48.6ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/users/id" for 127.0.0.1 at 2018-10-08 15:55:44 -0400
+Processing by UsersController#destroy as JS
+  Parameters: {"id"=>"id"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Redirected to http://localhost:3000/users/id
+Completed 200 OK in 4ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/users/id" for 127.0.0.1 at 2018-10-08 15:55:44 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"id"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering users/show.html.erb within layouts/application
+  Rendered items/_form.html.erb (2.7ms)
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/items/_item.html.erb:2
+  Rendered items/_item.html.erb (6.8ms)
+  Rendered users/show.html.erb within layouts/application (19.2ms)
+Completed 200 OK in 88ms (Views: 83.9ms | ActiveRecord: 0.5ms)
+
+
+  [1m[36mItem Load (1.2ms)[0m  [1m[34mSELECT  "items".* FROM "items" LIMIT ?[0m  [["LIMIT", 11]]
+Started GET "/users/id" for 127.0.0.1 at 2018-10-08 15:58:23 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"id"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering users/show.html.erb within layouts/application
+  Rendered items/_form.html.erb (3.2ms)
+  [1m[36mItem Load (0.6ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/items/_item.html.erb:2
+  Rendered items/_item.html.erb (18.5ms)
+  Rendered users/show.html.erb within layouts/application (41.5ms)
+Completed 200 OK in 146ms (Views: 117.4ms | ActiveRecord: 2.8ms)
+
+
+Started DELETE "/users/id" for 127.0.0.1 at 2018-10-08 15:58:26 -0400
+Processing by UsersController#destroy as JS
+  Parameters: {"id"=>"id"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.3ms)
+
+
+  
+NoMethodError (undefined method `destroy' for nil:NilClass):
+  
+app/controllers/users_controller.rb:15:in `destroy'
+Started GET "/users/id" for 127.0.0.1 at 2018-10-08 15:58:39 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"id"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering users/show.html.erb within layouts/application
+  Rendered items/_form.html.erb (4.7ms)
+  [1m[36mItem Load (0.5ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/items/_item.html.erb:2
+  Rendered items/_item.html.erb (18.4ms)
+  Rendered users/show.html.erb within layouts/application (38.9ms)
+Completed 200 OK in 136ms (Views: 110.0ms | ActiveRecord: 2.5ms)
+
+
+Started DELETE "/users/id" for 127.0.0.1 at 2018-10-08 15:58:42 -0400
+Processing by UsersController#destroy as JS
+  Parameters: {"id"=>"id"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Redirected to http://localhost:3000/users/id
+Completed 200 OK in 4ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/users/id" for 127.0.0.1 at 2018-10-08 15:58:42 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"id"}
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering users/show.html.erb within layouts/application
+  Rendered items/_form.html.erb (1.7ms)
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/items/_item.html.erb:2
+  Rendered items/_item.html.erb (8.1ms)
+  Rendered users/show.html.erb within layouts/application (14.4ms)
+Completed 200 OK in 86ms (Views: 74.1ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/users/id" for 127.0.0.1 at 2018-10-08 15:58:48 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"id"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/lcaton/.rvm/gems/ruby-2.4.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering users/show.html.erb within layouts/application
+  Rendered items/_form.html.erb (2.8ms)
+  [1m[36mItem Load (0.7ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/items/_item.html.erb:2
+  Rendered items/_item.html.erb (16.2ms)
+  Rendered users/show.html.erb within layouts/application (29.1ms)
+Completed 200 OK in 136ms (Views: 107.5ms | ActiveRecord: 2.8ms)
+
+

@@ -1,5 +1,10 @@
 <ul>
   <% @items.each do |i| %>
-    <li><%= i.name %></li>
+    <div class="col-md-6">
+      <li><%= i.name %></li>
+    </div>
+    <div class="col-md-1">
+      <%= link_to "", @item, method: :delete, data: { confirm: 'Are you sure?', remote: true }, class: 'glyphicon glyphicon-ok' %>
+    </div>
   <% end %>
 </ul>

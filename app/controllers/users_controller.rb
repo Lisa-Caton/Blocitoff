@@ -9,4 +9,21 @@ class UsersController < ApplicationController
     # if you werent using devise use: @items = @user.items
   end
 
+  def destroy
+    @item = current_user.items
+
+    @item.destroy
+    respond_to do |format|
+      format.html { redirect_to user_path(:id), notice: 'Item was successfully removed!' }
+      format.json { head :no_content }
+    end
+  end
+
+  #   if @item.destroy
+  #     flash[:notice] = "Item was deleted successfully!"
+  #   else
+  #     flash[:alert] = "There was a trouble deleting your item."
+  #   end
+  # end
+
 end
