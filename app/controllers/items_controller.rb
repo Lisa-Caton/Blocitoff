@@ -10,4 +10,14 @@ class ItemsController < ApplicationController
     end
     redirect_to user_path(current_user)
   end
+
+  def destroy
+    @item = current_user.items.find(params[:id])
+
+    @item.destroy
+    respond_to do |format|
+      format.html { redirect_to user_path(:id), notice: 'Item was successfully removed!' }
+      format.json { head :no_content }
+    end
+  end
 end
