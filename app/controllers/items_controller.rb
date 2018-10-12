@@ -11,6 +11,23 @@ class ItemsController < ApplicationController
     redirect_to user_path(current_user)
   end
 
+  def edit
+    @item = current_user.items.find(params[:id])
+  end
+
+  def update
+    @item = current_user.items.find(params[:id])
+    @item.update_attribute(item_params)
+
+    if @item.update
+      flash[:notice] = "Item was updated successfully"
+      redirect_to [@item]
+    else
+      flash[:alert] = "Item did not update"
+      render :edit
+    end
+  end
+
   def destroy
     @item = current_user.items.find(params[:id])
 
