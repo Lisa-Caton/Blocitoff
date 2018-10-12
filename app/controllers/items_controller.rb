@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
 
   def create
-    @item = current_user.items.build(params.require(:item).permit(:name))
+    @item = current_user.items.new(item_params)
 
     if @item.save
       flash[:notice] = "Your item was successfully saved!"
@@ -19,5 +19,11 @@ class ItemsController < ApplicationController
       format.html { redirect_to user_path(:id), notice: 'Item was successfully removed!' }
       format.json { head :no_content }
     end
+  end
+
+  private
+
+  def item_params
+    params.require(:item).permit(:name)
   end
 end
