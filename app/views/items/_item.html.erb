@@ -7,7 +7,7 @@
       <%= link_to "", user_item_path(current_user, i), method: :delete, data: { confirm: 'Are you sure?', remote: true }, class: 'glyphicon glyphicon-ok' %>
     </div>
     <div class="col-md-2">
-      <%= distance_of_time_in_words(i.created_at, Time.now - 7.days)%>
+      <%= distance_of_time_in_words(Time.now, i.created_at + 7.days)%>
     </div>
   <% end %>
 </ul>
